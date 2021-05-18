@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import Repos from './Repos'
 
 function Section(){
 
@@ -10,6 +11,8 @@ function Section(){
     const [quantFollowing, setQuantFollowing] = useState('0')
     const [url, setUrl] = useState('')
 
+    const [repos, setRepos] = useState('')
+    
     function atualizaInput(e){
         const valor = e.target.value
         setUsuario(valor)
@@ -25,13 +28,9 @@ function Section(){
             )
         })
 
-        axios.get(url+'/repos/?client_id=b35f947df79d89b81cd1&client_secret=906158d18bbb76ec7ea58efe06ac08b45a4f4c3a').then(e=>{
+        axios.get(url+'/repos?client_id=b35f947df79d89b81cd1&client_secret=906158d18bbb76ec7ea58efe06ac08b45a4f4c3a').then(e=>{
             return(
-                setPhoto(e.data.avatar_url),
-                setQuantRepos(e.data.public_repos),
-                setQuantFollowers(e.data.followers),
-                setQuantFollowing(e.data.following),
-                setUrl('https://github.com/'+valor)
+                setRepos(e.data)
             )
         })
         
@@ -70,18 +69,9 @@ function Section(){
                     </aside>
                     <main>
                         <strong>repos/{usuario}</strong>
-                        <article>
-                            <div className="ArticleCorpo">
-                                <p>lorem-lsapp teste teste</p>
-                                <div className="Info">
-                                    <div>Stars: 1</div>
-                                    <div>Watch: 1</div>
-                                    <div>Fork: 1</div>
-                                </div>
-                            </div>
-                            <div className="Bg">&nbsp;</div>
-                        </article>
-                        
+                        {Object.keys(repos).map(function(key) {
+                            return <option value={key}>{repos[key]}</option>
+                        })}
                     </main>
                 </div>
             </section>
