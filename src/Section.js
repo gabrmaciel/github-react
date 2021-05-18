@@ -5,13 +5,23 @@ function Section(){
 
     const [usuario, setUsuario] = useState('')
     const [photo, setPhoto] = useState('')
+    const [quantRepos, setQuantRepos] = useState('0')
+    const [quantFollowers, setQuantFollowers] = useState('0')
+    const [quantFollowing, setQuantFollowing] = useState('0')
 
     function atualizaInput(e){
         const valor = e.target.value
         setUsuario(valor)
 
         const url = 'https://api.github.com/users/' + valor
-        const resultado = axios.get(url+'?client_id=2c778623d720e4979e2e&client_secret=9cd8507ea8ea363932ffa5714a8012aec3cb5c94 ').then(e =>{setPhoto(e.data.avatar_url)})
+        const resultado = axios.get(url+'?client_id=2c778623d720e4979e2e&client_secret=9cd8507ea8ea363932ffa5714a8012aec3cb5c94 ').then(e=>{
+            return(
+                setPhoto(e.data.avatar_url),
+                setQuantRepos(e.data.public_repos),
+                setQuantFollowers(e.data.followers),
+                setQuantFollowing(e.data.following)
+            )
+        })
         
     }
     
@@ -31,13 +41,16 @@ function Section(){
                         <div className="Photo" style={{backgroundImage:`url("${photo}")`}}></div>
                         <div className="Fi">
                             <div className="Field">
-                                <div className="FieldP">Repositórios: <p>14</p></div>
+                                <div className="FieldP">Repositórios: <p>{quantRepos}</p></div>
                             </div>
                             <div className="Field">
-                                <div className="FieldP">Seguidores: <p>200</p></div>
+                                <div className="FieldP">Seguidores: <p>{quantFollowers}</p></div>
                             </div>
                             <div className="Field">
-                                <div className="FieldP">Seguindo: <p>48</p></div>
+                                <div className="FieldP">Seguindo: <p>{quantFollowing}</p></div>
+                            </div>
+                            <div className="Field">
+                                <div className="FieldP">Ver perfil</div>
                             </div>
                         </div>
                     </aside>

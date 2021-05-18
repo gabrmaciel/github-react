@@ -88,7 +88,7 @@ aside .Photo{
   padding-bottom: 66.6%;
   background-size: cover;
   background-position: center;
-  
+  background-color: #AAA;
 }
 
 aside .Field{
@@ -108,7 +108,7 @@ aside .FieldP p{
   font-weight: 400;
 }
 
-aside .Field:nth-child(3){
+aside .Field:nth-child(4){
   border-bottom: none
 }
 
