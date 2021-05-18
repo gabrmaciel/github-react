@@ -24,6 +24,16 @@ function Section(){
                 setUrl('https://github.com/'+valor)
             )
         })
+
+        axios.get(url+'/repos/?client_id=b35f947df79d89b81cd1&client_secret=906158d18bbb76ec7ea58efe06ac08b45a4f4c3a').then(e=>{
+            return(
+                setPhoto(e.data.avatar_url),
+                setQuantRepos(e.data.public_repos),
+                setQuantFollowers(e.data.followers),
+                setQuantFollowing(e.data.following),
+                setUrl('https://github.com/'+valor)
+            )
+        })
         
     }
     
@@ -63,28 +73,6 @@ function Section(){
                         <article>
                             <div className="ArticleCorpo">
                                 <p>lorem-lsapp teste teste</p>
-                                <div className="Info">
-                                    <div>Stars: 1</div>
-                                    <div>Watch: 1</div>
-                                    <div>Fork: 1</div>
-                                </div>
-                            </div>
-                            <div className="Bg">&nbsp;</div>
-                        </article>
-                        <article>
-                            <div className="ArticleCorpo">
-                                <p>lorem-lsapp</p>
-                                <div className="Info">
-                                    <div>Stars: 1</div>
-                                    <div>Watch: 1</div>
-                                    <div>Fork: 1</div>
-                                </div>
-                            </div>
-                            <div className="Bg">&nbsp;</div>
-                        </article>
-                        <article>
-                            <div className="ArticleCorpo">
-                                <p>lorem-lsapp</p>
                                 <div className="Info">
                                     <div>Stars: 1</div>
                                     <div>Watch: 1</div>
