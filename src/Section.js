@@ -8,6 +8,7 @@ function Section(){
     const [quantRepos, setQuantRepos] = useState('0')
     const [quantFollowers, setQuantFollowers] = useState('0')
     const [quantFollowing, setQuantFollowing] = useState('0')
+    const [url, setUrl] = useState('')
 
     function atualizaInput(e){
         const valor = e.target.value
@@ -19,7 +20,8 @@ function Section(){
                 setPhoto(e.data.avatar_url),
                 setQuantRepos(e.data.public_repos),
                 setQuantFollowers(e.data.followers),
-                setQuantFollowing(e.data.following)
+                setQuantFollowing(e.data.following),
+                setUrl('https://github.com/'+valor)
             )
         })
         
@@ -49,9 +51,11 @@ function Section(){
                             <div className="Field">
                                 <div className="FieldP">Seguindo: <p>{quantFollowing}</p></div>
                             </div>
-                            <div className="Field">
-                                <div className="FieldP">Ver perfil</div>
-                            </div>
+                            <a href={url} target="_blank">
+                                <div className="Field">
+                                    <div className="FieldP">Ver perfil</div>
+                                </div>
+                            </a>
                         </div>
                     </aside>
                     <main>
