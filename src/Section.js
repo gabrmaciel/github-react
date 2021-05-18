@@ -1,19 +1,17 @@
 import React, {useState} from 'react'
+import axios from 'axios'
 
 function Section(){
 
     const [usuario, setUsuario] = useState('')
-    const [url, setUrl] = useState('')
 
     function atualizaInput(e){
         const valor = e.target.value
         setUsuario(valor)
-        gerarLink()
-    }
 
-    function gerarLink(){
-        const url = "https://api.github.com/users/"+usuario;
-        console.log(url)
+        const url = 'https://api.github.com/users/' + valor
+        const resultado = axios.get(url+'?client_id=2c778623d720e4979e2e&client_secret=9cd8507ea8ea363932ffa5714a8012aec3cb5c94 ').then((e) => console.log(e.data))
+        
     }
 
     
