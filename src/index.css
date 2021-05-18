@@ -163,6 +163,11 @@ article .Info div:nth-child(3){
   padding-right: 0
 }
 
+article .Info div:nth-child(3):hover{
+  background-color: deepskyblue;
+  color: #FFF
+}
+
 article .Bg{
   position: absolute;
   z-index: -1;

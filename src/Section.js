@@ -14,7 +14,7 @@ function Section(){
         setUsuario(valor)
 
         const url = 'https://api.github.com/users/' + valor
-        const resultado = axios.get(url+'?client_id=2c778623d720e4979e2e&client_secret=9cd8507ea8ea363932ffa5714a8012aec3cb5c94 ').then(e=>{
+        axios.get(url+'?client_id=b35f947df79d89b81cd1&client_secret=906158d18bbb76ec7ea58efe06ac08b45a4f4c3a').then(e=>{
             return(
                 setPhoto(e.data.avatar_url),
                 setQuantRepos(e.data.public_repos),
