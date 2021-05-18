@@ -4,16 +4,16 @@ import axios from 'axios'
 function Section(){
 
     const [usuario, setUsuario] = useState('')
+    const [photo, setPhoto] = useState('')
 
     function atualizaInput(e){
         const valor = e.target.value
         setUsuario(valor)
 
         const url = 'https://api.github.com/users/' + valor
-        const resultado = axios.get(url+'?client_id=2c778623d720e4979e2e&client_secret=9cd8507ea8ea363932ffa5714a8012aec3cb5c94 ').then((e) => console.log(e.data))
+        const resultado = axios.get(url+'?client_id=2c778623d720e4979e2e&client_secret=9cd8507ea8ea363932ffa5714a8012aec3cb5c94 ').then(e =>{setPhoto(e.data.avatar_url)})
         
     }
-
     
     return(
         <div>
@@ -28,7 +28,7 @@ function Section(){
             <section>
                 <div className="Corpo">
                     <aside>
-                        <div className="Photo" style={{backgroundImage:`url('https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg')`}}></div>
+                        <div className="Photo" style={{backgroundImage:`url("${photo}")`}}></div>
                         <div className="Fi">
                             <div className="Field">
                                 <div className="FieldP">Repositórios: <p>14</p></div>
