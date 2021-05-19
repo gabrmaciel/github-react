@@ -84,6 +84,7 @@ aside{
   border:1px solid #000;
   background: #FFF;
   overflow: hidden;
+  margin-right: 2.5em;
 }
 
 aside .Photo{
@@ -118,6 +119,10 @@ aside .Field{
   color:#1f1f1f !important;
 }
 
+aside a .Field:hover{
+  color:#FFF !important;
+}
+
 aside .FieldP{
   display: flex;
   font-weight: 700;
@@ -134,14 +139,12 @@ aside a div{
 
 aside a div:hover{
   background-color: deepskyblue;
-  color: #FFF;
   cursor:pointer
 }
 
 main{
   float: left;
-  width: 70%;
-  padding-left: 2.5em;
+  width: calc(70% - 2.5em);
   padding-top: 1.5em
 }
 
@@ -250,6 +253,27 @@ article .Bg{
 
 .next a{
   font-weight: 700;
+}
+
+.Tipos{
+  float: left;
+  width: 100%;
+  margin-bottom: 1.5em;
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+
+.Tipos input{
+  border: 1px solid #000;
+  border-radius:3px;
+  margin-left: 1em;
+  padding: 0.66em 0.5em
+}
+
+.Tipos strong{
+  padding-bottom: 0;
+  color: #1f1f1f
 }
 
 

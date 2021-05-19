@@ -85,30 +85,32 @@ const Section = () =>{
             <Header onChange={atualizaInput} />
             <section>
                 <div className="Corpo">
-                    <aside>
-                        <div className="Photo" style={{backgroundImage:`url("${photo}")`}}>
-                            <a href={url} target="_blank"><div className="PhotoVer">Ver</div></a>
-                        </div>
-                        <div className="Fi">
-                            <div className="Field">
-                                <div className="FieldP">Usuário: <p>{usuario}</p></div>
+                    {repos.length > 0 && 
+                        <aside>
+                            <div className="Photo" style={{backgroundImage:`url("${photo}")`}}>
+                                <a href={url} target="_blank"><div className="PhotoVer">Ver</div></a>
                             </div>
-                            <div className="Field">
-                                <div className="FieldP">Repositórios: <p>{quantRepos}</p></div>
-                            </div>
-                            <div className="Field">
-                                <div className="FieldP">Seguidores: <p>{quantFollowers}</p></div>
-                            </div>
-                            <div className="Field">
-                                <div className="FieldP">Seguindo: <p>{quantFollowing}</p></div>
-                            </div>
-                            <a href={url} target="_blank">
+                            <div className="Fi">
                                 <div className="Field">
-                                    <div className="FieldP">Ver perfil</div>
+                                    <div className="FieldP">Usuário: <p>{usuario}</p></div>
                                 </div>
-                            </a>
-                        </div>
-                    </aside>
+                                <div className="Field">
+                                    <div className="FieldP">Repositórios: <p>{quantRepos}</p></div>
+                                </div>
+                                <div className="Field">
+                                    <div className="FieldP">Seguidores: <p>{quantFollowers}</p></div>
+                                </div>
+                                <div className="Field">
+                                    <div className="FieldP">Seguindo: <p>{quantFollowing}</p></div>
+                                </div>
+                                <a href={url} target="_blank">
+                                    <div className="Field">
+                                        <div className="FieldP">Ver perfil</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </aside>
+                    }
                     <main>
                         {repos.length > 0 ? 
                             <Repos repos={repos} paginacaoAtual={paginacaoAtual} paginacaoReposPorPagina={paginacaoReposPorPagina} paginacaoContador={paginacaoContador} changePage={changePage} />
