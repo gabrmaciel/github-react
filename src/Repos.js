@@ -28,7 +28,7 @@ const Repos = (props) =>{
                 const paginacaoContadorLanguage = Math.ceil(responseReposLanguage.length / props.paginacaoReposPorPagina)
                 setPaginacaoContadorLanguage(paginacaoContadorLanguage)
             }
-            
+
         }, 1000);
     }
 
@@ -37,7 +37,6 @@ const Repos = (props) =>{
             <div className="Tipos">
                 <strong>Filtrar por: </strong>
                 <input type="text" placeholder="Linguagem" onChange={(e)=>atualizaInputLinguagem(e)}/>
-                <input type="text" placeholder="Organização"/>
             </div>
 
             {reposLanguage.length > 0 ?
@@ -52,6 +51,7 @@ const Repos = (props) =>{
                 .map((repo) => <Repo repo={repo} key={repo.id} />)
             }
 
+            
             <ReactPaginate 
                     previousLabel={"Prev"}
                     nextLabel={"Next"}
