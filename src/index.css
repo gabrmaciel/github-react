@@ -182,7 +182,7 @@ article .ArticleCorpo{
 
 article .InfoCorpo{
   float: left;
-  width: 70%
+  width: 60%
 }
 
 article .InfoCorpo div{
@@ -199,7 +199,7 @@ article p{
 
 article .Info{
   float: left;
-  width: 30%;
+  width: 40%;
   display: flex;
   justify-content: flex-end;
 }
@@ -381,15 +381,15 @@ article .Bg{
   }
 
   .Tipos{
-    display: block;
+    /*display: block;
     width: calc(100% + 1em);
-    margin-left: -1em;
-    margin-top:1.1em
+    margin-left: -1em;*/
+    margin-top:1em
   }
 
   .Tipos strong{
-    width: calc(100% + 1em);
-    padding-bottom: 0.5em;
+    /*width: calc(100% + 1em);
+    padding-bottom: 0.5em;*/
     margin-left: -1em
   }
 
