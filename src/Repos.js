@@ -21,8 +21,9 @@ const Repos = (props) =>{
                 nextLinkClassName={"PaginateDiv"}
                 disabledClassName={"PaginateDivBlock"}
                 activeClassName={"PaginateSelect"}
-                disableInitialCallback={ true }
+                disableInitialCallback={true}
                 initialPage={0}
+                pageRangeDisplayed={0}
             />
         </div>
     )

@@ -269,12 +269,33 @@ article .Bg{
   aside .Photo{
       width: 75%;
       padding-bottom: 0;
-      border-right: 1px solid #FFF
+      border-right: 1px solid #000
   }
 
   aside .Fi{
       width: 100%;
   }
+
+  aside .Field{
+    float: left;
+  }
+
+  aside .Field:nth-child(2), .Field:nth-child(3), .Field:nth-child(4){
+    display:block;
+    width: 33.33%;
+    border-right: 1px solid #000;
+    text-align: center;
+    padding: 1em 0;
+  }
+
+  aside .Field:nth-child(4){
+    border-right: 0px solid #000
+  }
+
+  aside .Field:nth-child(2) .FieldP, .Field:nth-child(3) .FieldP, .Field:nth-child(4) .FieldP{
+    display: block
+  }
+
 
   article .Info{
       min-width: 208px;
@@ -283,5 +304,14 @@ article .Bg{
 
   article .Info div{
       padding-right: 0.5em
+  }
+
+  .Paginate{
+    display: block;
+  }
+
+  .Paginate li{
+      float: left;
+      width: 25%;
   }
 }
