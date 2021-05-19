@@ -159,6 +159,7 @@ main .NaoHa{
   padding: 1em;
   border: 1px solid #000;
   margin: 1em;
+  margin-top: -1em;
   box-shadow: 10px 10px 0px -4px deepskyblue;
   color: #1f1f1f;
 }
@@ -182,7 +183,7 @@ article .ArticleCorpo{
 
 article .InfoCorpo{
   float: left;
-  width: 60%
+  width: 65%
 }
 
 article .InfoCorpo div{
@@ -199,7 +200,7 @@ article p{
 
 article .Info{
   float: left;
-  width: 40%;
+  width: 35%;
   display: flex;
   justify-content: flex-end;
 }
@@ -361,15 +362,16 @@ article .Bg{
     display:none
   }*/
 
-
-  article .Info{
-      min-width: 208px;
-      max-width: 208px;
-  }
-
   article .Info div{
-      padding-right: 0.5em
+      padding-right: 0.5em;
+      font-size: 0.75em
   }
+
+  article .Info div:nth-child(2){
+      padding-right: 0
+  }
+
+  
 
   .Paginate{
     display: block;
