@@ -2,21 +2,46 @@ import React, {useState, useRef} from 'react'
 import axios from 'axios'
 import Repo from './Repo'
 import Header from './Header'
+import ReactPaginate from "react-paginate"
 
 const Section = () =>{
 
-    const [usuario, setUsuario] = useState('')
-    const [photo, setPhoto] = useState('')
-    const [quantRepos, setQuantRepos] = useState(0)
-    const [quantFollowers, setQuantFollowers] = useState(0)
-    const [quantFollowing, setQuantFollowing] = useState(0)
-    const [url, setUrl] = useState('')
+    //Sets de hooks ---------//
 
-    const [repos, setRepos] = useState([])
+        //Github Informações
+        const [usuario, setUsuario] = useState('')
+        const [photo, setPhoto] = useState('')
+        const [quantRepos, setQuantRepos] = useState(0)
+        const [quantFollowers, setQuantFollowers] = useState(0)
+        const [quantFollowing, setQuantFollowing] = useState(0)
+        const [url, setUrl] = useState('')
 
-    const timer = useRef(null)
-    
+        const [repos, setRepos] = useState([])
+
+        //Timer de callback
+        const timer = useRef(null)
+
+        //Paginação
+        const [pagina, setPagina] = useState(0)
+        const paginacaoReposPorPagina = 10
+        const paginacaoAtual = pagina * paginacaoReposPorPagina
+        const paginacaoContador = Math.ceil(repos.length / paginacaoReposPorPagina)
+        const changePage = ({selected}) =>{
+            setPagina(selected)
+        }
+         
+    //--------------------//
+
     function atualizaInput(e){
+
+        setUsuario('')
+        setPhoto('')
+        setQuantRepos(0)
+        setQuantFollowers(0)
+        setQuantFollowing(0)
+        setUrl('')
+
+        setRepos([])
 
         clearTimeout(timer.current)
         timer.current = setTimeout(async()=> {
@@ -50,13 +75,10 @@ const Section = () =>{
                 const reposResponse = await axios.get(url+'/repos?client_id=b35f947df79d89b81cd1&client_secret=906158d18bbb76ec7ea58efe06ac08b45a4f4c3a')
                 setRepos(reposResponse.data)
     
-                console.log(reposResponse.data)
-    
             } catch (error) {
-                
+                console.log(error)
             }
         }, 1000)
-        
     }
     
     return(
@@ -87,7 +109,23 @@ const Section = () =>{
                         </div>
                     </aside>
                     <main>
-                        {repos.map((repo) => <Repo repo={repo} key={repo.id} />)}
+                        {repos
+                            .slice(paginacaoAtual, paginacaoAtual + paginacaoReposPorPagina)
+                            .map((repo) => <Repo repo={repo} key={repo.id} />)
+                        }
+                        <ReactPaginate 
+                            previousLabel={"Prev"}
+                            nextLabel={"Next"}
+                            pageCount={paginacaoContador}
+                            onPageChange={changePage}
+                            containerClassName={"Paginate"}
+                            previousLinkClassName={"PaginateDiv"}
+                            nextLinkClassName={"PaginateDiv"}
+                            disabledClassName={"PaginateDivBlock"}
+                            activeClassName={"PaginateSelect"}
+                            disableInitialCallback={ true }
+                            initialPage={0}
+                        />
                     </main>
                 </div>
             </section>
