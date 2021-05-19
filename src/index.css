@@ -292,7 +292,7 @@ article .Bg{
 }
 
 .TiposAscDesc{
-  display: flex;
+  display: none;
   margin-left: 0.4em
 }
 
