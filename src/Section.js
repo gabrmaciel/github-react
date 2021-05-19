@@ -1,64 +1,75 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import axios from 'axios'
-import Repos from './Repos'
+import Repo from './Repo'
+import Header from './Header'
 
-function Section(){
+const Section = () =>{
 
     const [usuario, setUsuario] = useState('')
     const [photo, setPhoto] = useState('')
-    const [quantRepos, setQuantRepos] = useState('0')
-    const [quantFollowers, setQuantFollowers] = useState('0')
-    const [quantFollowing, setQuantFollowing] = useState('0')
+    const [quantRepos, setQuantRepos] = useState(0)
+    const [quantFollowers, setQuantFollowers] = useState(0)
+    const [quantFollowing, setQuantFollowing] = useState(0)
     const [url, setUrl] = useState('')
 
-    const [repos, setRepos] = useState('')
-    const [reposName, setReposName] = useState('')
+    const [repos, setRepos] = useState([])
+
+    const timer = useRef(null)
     
     function atualizaInput(e){
-        const valor = e.target.value
-        setUsuario(valor)
 
-        const url = 'https://api.github.com/users/' + valor
-        axios.get(url+'?client_id=b35f947df79d89b81cd1&client_secret=906158d18bbb76ec7ea58efe06ac08b45a4f4c3a').then(e=>{
-            return(
-                setPhoto(e.data.avatar_url),
-                setQuantRepos(e.data.public_repos),
-                setQuantFollowers(e.data.followers),
-                setQuantFollowing(e.data.following),
+        clearTimeout(timer.current)
+        timer.current = setTimeout(async()=> {
+            try {
+                const valor = e.target.value
+
+                if(valor === ""){
+                    setUsuario('')
+                    setPhoto('')
+                    setQuantRepos(0)
+                    setQuantFollowers(0)
+                    setQuantFollowing(0)
+                    setUrl('')
+
+                    setRepos([])
+
+                    return
+                }
+
+                setUsuario(valor)
+    
+                const url = 'https://api.github.com/users/' + valor
+                const userResponse = await axios.get(url+'?client_id=b35f947df79d89b81cd1&client_secret=906158d18bbb76ec7ea58efe06ac08b45a4f4c3a')
+                
+                setPhoto(userResponse.data.avatar_url)
+                setQuantRepos(userResponse.data.public_repos)
+                setQuantFollowers(userResponse.data.followers)
+                setQuantFollowing(userResponse.data.following)
                 setUrl('https://github.com/'+valor)
-            )
-        })
-
-        axios.get(url+'/repos?client_id=b35f947df79d89b81cd1&client_secret=906158d18bbb76ec7ea58efe06ac08b45a4f4c3a').then(e=>{
-            return(
-                setRepos(e.data),
-                atualizaRepos()
-            ) 
-        })
-    }
-
-    function atualizaRepos(){
+    
+                const reposResponse = await axios.get(url+'/repos?client_id=b35f947df79d89b81cd1&client_secret=906158d18bbb76ec7ea58efe06ac08b45a4f4c3a')
+                setRepos(reposResponse.data)
+    
+                console.log(reposResponse.data)
+    
+            } catch (error) {
+                
+            }
+        }, 1000)
         
-        for (const re in repos) {
-            console.log(repos[re])
-        }
-    }   
+    }
     
     return(
         <div>
-            <header>
-                <div className="HeaderCorpo">
-                    <div className="Corpo">
-                        <h1>Digite para encontrar usuários e repositórios</h1>
-                        <input type="text" onChange={(e)=>atualizaInput(e)}/>
-                    </div>
-                </div>
-            </header>
+            <Header onChange={atualizaInput} />
             <section>
                 <div className="Corpo">
                     <aside>
                         <div className="Photo" style={{backgroundImage:`url("${photo}")`}}></div>
                         <div className="Fi">
+                            <div className="Field">
+                                <div className="FieldP">Usuário: <p>{usuario}</p></div>
+                            </div>
                             <div className="Field">
                                 <div className="FieldP">Repositórios: <p>{quantRepos}</p></div>
                             </div>
@@ -76,8 +87,7 @@ function Section(){
                         </div>
                     </aside>
                     <main>
-                        <strong>repos/{usuario}</strong>
-                        
+                        {repos.map((repo) => <Repo repo={repo} key={repo.id} />)}
                     </main>
                 </div>
             </section>
