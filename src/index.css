@@ -279,6 +279,7 @@ article .Bg{
 }
 
 .Tipos input{
+  width: 30%;
   border: 1px solid #000;
   border-radius:3px;
   margin-left: 1em;
@@ -373,11 +374,11 @@ article .Bg{
   }
 
   article .InfoCorpo{
-    width: 60%;
+    width: 55%;
   }
 
   article .Info{
-    width: 40%;
+    width: 45%;
   }
 
   .Paginate{
