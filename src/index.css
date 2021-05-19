@@ -174,10 +174,20 @@ article{
 article .ArticleCorpo{
   background: #FFF;
   border: 1px solid #000;
-  padding: 1em;
+  padding: 0.9em 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+article .InfoCorpo{
+  float: left;
+  width: 70%
+}
+
+article .InfoCorpo div{
+  margin-top: 0.1em;
+  font-size: 0.8em
 }
 
 article p{
@@ -188,6 +198,8 @@ article p{
 }
 
 article .Info{
+  float: left;
+  width: 30%;
   display: flex;
   justify-content: flex-end;
 }

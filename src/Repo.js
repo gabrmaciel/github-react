@@ -5,9 +5,14 @@ const Repos = ({repo}) =>{
         <a href={repo.html_url} target="_blank">
             <article>
                 <div className="ArticleCorpo">
-                    <p>{repo.name}</p>
+                    <div className="InfoCorpo">
+                        <p>{repo.name}</p>
+                        <div>{repo.description}</div>
+                    </div>
                     <div className="Info">
-                        <div>{repo.language}</div>
+                        
+                        <div>💻 {repo.language}</div>
+                        <div>⭐ {repo.stargazers_count}</div>
                     </div>
                 </div>
                 <div className="Bg">&nbsp;</div>
