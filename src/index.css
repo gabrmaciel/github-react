@@ -133,6 +133,15 @@ main strong{
   padding-bottom: 1em
 }
 
+main .NaoHa{
+  background-color: #FFF;
+  padding: 1em;
+  border: 1px solid #000;
+  margin: 1em;
+  box-shadow: 10px 10px 0px -4px deepskyblue;
+  color: #1f1f1f;
+}
+
 article{
   float: left;
   width: 100%;

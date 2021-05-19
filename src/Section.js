@@ -1,8 +1,7 @@
 import React, {useState, useRef} from 'react'
 import axios from 'axios'
-import Repo from './Repo'
+import Repos from './Repos'
 import Header from './Header'
-import ReactPaginate from "react-paginate"
 
 const Section = () =>{
 
@@ -109,23 +108,13 @@ const Section = () =>{
                         </div>
                     </aside>
                     <main>
-                        {repos
-                            .slice(paginacaoAtual, paginacaoAtual + paginacaoReposPorPagina)
-                            .map((repo) => <Repo repo={repo} key={repo.id} />)
+                        {repos.length > 0 ? 
+                            <Repos repos={repos} paginacaoAtual={paginacaoAtual} paginacaoReposPorPagina={paginacaoReposPorPagina} paginacaoContador={paginacaoContador} changePage={changePage} />
+                         : 
+                            <div class="NaoHa">Não há Repositórios</div>
                         }
-                        <ReactPaginate 
-                            previousLabel={"Prev"}
-                            nextLabel={"Next"}
-                            pageCount={paginacaoContador}
-                            onPageChange={changePage}
-                            containerClassName={"Paginate"}
-                            previousLinkClassName={"PaginateDiv"}
-                            nextLinkClassName={"PaginateDiv"}
-                            disabledClassName={"PaginateDivBlock"}
-                            activeClassName={"PaginateSelect"}
-                            disableInitialCallback={ true }
-                            initialPage={0}
-                        />
+                        
+                        
                     </main>
                 </div>
             </section>
