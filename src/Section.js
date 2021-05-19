@@ -86,7 +86,9 @@ const Section = () =>{
             <section>
                 <div className="Corpo">
                     <aside>
-                        <div className="Photo" style={{backgroundImage:`url("${photo}")`}}></div>
+                        <div className="Photo" style={{backgroundImage:`url("${photo}")`}}>
+                            <a href={url} target="_blank"><div className="PhotoVer">Ver</div></a>
+                        </div>
                         <div className="Fi">
                             <div className="Field">
                                 <div className="FieldP">Usuário: <p>{usuario}</p></div>

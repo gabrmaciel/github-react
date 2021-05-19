@@ -91,7 +91,25 @@ aside .Photo{
   background-size: cover;
   background-position: center;
   background-color: #AAA;
+  position: relative;
 }
+
+aside .PhotoVer{
+  display:none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #000 !important;
+  padding: 0.5em;
+  border: 1px solid #000;
+  margin: 0.5em;
+  box-shadow: 8px 8px 0px -4px deepskyblue;
+  font-size: 0.85em;
+  font-weight: 700;
+  color: #FFF;
+}
+
+
 
 aside .Field{
   width: 100%;
@@ -234,6 +252,7 @@ article .Bg{
   font-weight: 700;
 }
 
+
 @media only screen and (max-width: 600px) {
 
   nav{
@@ -267,9 +286,13 @@ article .Bg{
   }
 
   aside .Photo{
-      width: 75%;
+      width: 50%;
       padding-bottom: 0;
       border-right: 1px solid #000
+  }
+
+  aside .PhotoVer{
+    display: block;
   }
 
   aside .Fi{
@@ -284,6 +307,7 @@ article .Bg{
     display:block;
     width: 33.33%;
     border-right: 1px solid #000;
+    border-bottom: 0;
     text-align: center;
     padding: 1em 0;
   }
@@ -293,7 +317,12 @@ article .Bg{
   }
 
   aside .Field:nth-child(2) .FieldP, .Field:nth-child(3) .FieldP, .Field:nth-child(4) .FieldP{
-    display: block
+    display: block;
+    font-size: 0.8em
+  }
+
+  aside .Fi a{
+    display:none
   }
 
 
@@ -312,6 +341,6 @@ article .Bg{
 
   .Paginate li{
       float: left;
-      width: 25%;
+      width: 33.3%;
   }
 }
