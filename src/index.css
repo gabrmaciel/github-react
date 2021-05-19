@@ -296,7 +296,7 @@ article .Bg{
   }
 
   header{
-      height: 30vh
+      height: 190px
   }
   
   header h1{
@@ -317,11 +317,11 @@ article .Bg{
   }
 
   aside{
-      display: flex;
+      /*display: flex;*/
       width: 100%;
   }
 
-  aside .Photo{
+  /*aside .Photo{
       width: 50%;
       padding-bottom: 0;
       border-right: 1px solid #000
@@ -359,7 +359,7 @@ article .Bg{
 
   aside .Fi a{
     display:none
-  }
+  }*/
 
 
   article .Info{
