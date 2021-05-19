@@ -12,6 +12,7 @@ function Section(){
     const [url, setUrl] = useState('')
 
     const [repos, setRepos] = useState('')
+    const [reposName, setReposName] = useState('')
     
     function atualizaInput(e){
         const valor = e.target.value
@@ -30,11 +31,18 @@ function Section(){
 
         axios.get(url+'/repos?client_id=b35f947df79d89b81cd1&client_secret=906158d18bbb76ec7ea58efe06ac08b45a4f4c3a').then(e=>{
             return(
-                setRepos(e.data)
-            )
+                setRepos(e.data),
+                atualizaRepos()
+            ) 
         })
-        
     }
+
+    function atualizaRepos(){
+        
+        for (const re in repos) {
+            console.log(repos[re])
+        }
+    }   
     
     return(
         <div>
@@ -69,9 +77,7 @@ function Section(){
                     </aside>
                     <main>
                         <strong>repos/{usuario}</strong>
-                        {Object.keys(repos).map(function(key) {
-                            return <option value={key}>{repos[key]}</option>
-                        })}
+                        
                     </main>
                 </div>
             </section>
