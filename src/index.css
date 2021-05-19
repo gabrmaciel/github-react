@@ -403,7 +403,7 @@ article .Bg{
   }
 
   .Tipos input{
-    width: calc(50% - 1em);
+    width: calc(70% - 1em);
     padding: 0.75em 1em;
   }
 }
