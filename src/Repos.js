@@ -8,10 +8,9 @@ const Repos = (props) =>{
     return(
         <div>
             <div className="Tipos">
-                <strong>Buscar por: </strong>
+                <strong>Filtrar por: </strong>
                 <input type="text" placeholder="Linguagem"/>
                 <input type="text" placeholder="Organização"/>
-                <div style={{marginLeft:"0.5em"}}>⬆️⬇️</div>
             </div>
             
            {props.repos
