@@ -113,9 +113,9 @@ const Section = () =>{
                     }
                     <main>
                         {repos.length > 0 ? 
-                            <Repos repos={repos} paginacaoAtual={paginacaoAtual} paginacaoReposPorPagina={paginacaoReposPorPagina} paginacaoContador={paginacaoContador} changePage={changePage} />
+                            <Repos repos={repos} paginacaoAtual={paginacaoAtual} paginacaoReposPorPagina={paginacaoReposPorPagina} paginacaoContador={paginacaoContador} changePage={changePage} timer={timer} usuario={usuario} repos={repos}/>
                          : 
-                            <div class="NaoHa">Não há Repositórios</div>
+                            <div className="NaoHa">Não há Repositórios</div>
                         }
                         
                         
