@@ -183,7 +183,8 @@ article .ArticleCorpo{
 
 article .InfoCorpo{
   float: left;
-  width: 65%
+  width: 70%;
+  padding-right: 0.25em
 }
 
 article .InfoCorpo div{
@@ -200,7 +201,7 @@ article p{
 
 article .Info{
   float: left;
-  width: 35%;
+  width: 30%;
   display: flex;
   justify-content: flex-end;
 }
@@ -371,7 +372,13 @@ article .Bg{
       padding-right: 0
   }
 
-  
+  article .InfoCorpo{
+    width: 60%;
+  }
+
+  article .Info{
+    width: 40%;
+  }
 
   .Paginate{
     display: block;
