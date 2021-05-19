@@ -9,7 +9,6 @@ const Repos = (props) =>{
     const [paginacaoContadorLanguage, setPaginacaoContadorLanguage] = useState(props.paginacaoContador)
 
     //--------------------//
-
     function atualizaReposLanguage(repo, linguagem){
         return repo.language == linguagem
     }

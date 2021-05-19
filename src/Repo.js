@@ -10,7 +10,6 @@ const Repos = ({repo}) =>{
                         <div>{repo.description}</div>
                     </div>
                     <div className="Info">
-                        
                         <div>💻 {repo.language}</div>
                         <div>⭐ {repo.stargazers_count}</div>
                     </div>

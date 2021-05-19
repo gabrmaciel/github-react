@@ -281,14 +281,23 @@ article .Bg{
 .Tipos input{
   width: 30%;
   border: 1px solid #000;
-  border-radius:3px;
   margin-left: 1em;
-  padding: 0.66em 0.5em
+  padding: 0.66em 0.5em;
+  box-shadow: 8px 8px 0px -4px #ffc800;
 }
 
 .Tipos strong{
   padding-bottom: 0;
   color: #1f1f1f
+}
+
+.TiposAscDesc{
+  display: flex;
+  margin-left: 0.4em
+}
+
+.TiposAscDesc div{
+  margin-left: 0.1em
 }
 
 

@@ -28,6 +28,13 @@ const Section = () =>{
         const changePage = ({selected}) =>{
             setPagina(selected)
         }
+
+        //Chave do GitHub API
+        const client_id = 'b35f947df79d89b81cd1'
+        const client_secret = '906158d18bbb76ec7ea58efe06ac08b45a4f4c3a'
+
+        //ASC Desc
+        const [ascDesc, setAscDesc] = useState('')
          
     //--------------------//
 
@@ -63,7 +70,7 @@ const Section = () =>{
                 setUsuario(valor)
     
                 const url = 'https://api.github.com/users/' + valor
-                const userResponse = await axios.get(url+'?client_id=b35f947df79d89b81cd1&client_secret=906158d18bbb76ec7ea58efe06ac08b45a4f4c3a')
+                const userResponse = await axios.get(url+'?client_id='+client_id+'&client_secret='+client_secret)
                 
                 setPhoto(userResponse.data.avatar_url)
                 setQuantRepos(userResponse.data.public_repos)
@@ -71,7 +78,7 @@ const Section = () =>{
                 setQuantFollowing(userResponse.data.following)
                 setUrl('https://github.com/'+valor)
     
-                const reposResponse = await axios.get(url+'/repos?client_id=b35f947df79d89b81cd1&client_secret=906158d18bbb76ec7ea58efe06ac08b45a4f4c3a&page='+pagina+'&per_page=100')
+                const reposResponse = await axios.get(url+'/repos?client_id='+client_id+'&client_secret='+client_secret+'&page='+pagina+'&per_page=100&sort=id&order='+ascDesc)
                 setRepos(reposResponse.data)
     
             } catch (error) {
