@@ -78,7 +78,7 @@ const Section = () =>{
                 setQuantFollowing(userResponse.data.following)
                 setUrl('https://github.com/'+valor)
     
-                const reposResponse = await axios.get(url+'/repos?client_id='+client_id+'&client_secret='+client_secret+'&page='+pagina+'&per_page=100&sort=id&order='+ascDesc)
+                const reposResponse = await axios.get(url+'/repos?client_id='+client_id+'&client_secret='+client_secret+'&page='+pagina+'&per_page=100&sort=name&order='+ascDesc)
                 setRepos(reposResponse.data)
     
             } catch (error) {

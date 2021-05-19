@@ -36,6 +36,10 @@ const Repos = (props) =>{
             <div className="Tipos">
                 <strong>Filtrar por: </strong>
                 <input type="text" placeholder="Linguagem" onChange={(e)=>atualizaInputLinguagem(e)}/>
+                /*<div class="TiposAscDesc">
+                    <div>🔼</div>
+                    <div>🔽</div>
+                </div>*/
             </div>
 
             {reposLanguage.length > 0 ?
